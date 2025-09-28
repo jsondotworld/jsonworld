@@ -66,7 +66,7 @@ async function main() {
 
 	await writeData(import.meta.url, 'data', {
 		source,
-		date: new Date().toISOString(),
+		timestamp: new Date().toISOString(),
 		data: isoList,
 	})
 }

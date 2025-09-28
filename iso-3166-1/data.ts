@@ -1,6 +1,6 @@
 export default {
 	source: 'https://en.wikipedia.org/wiki/ISO_3166-1',
-	date: '2025-09-28T13:35:42.998Z',
+	timestamp: '2025-09-28T13:35:42.998Z',
 	data: [
 		{
 			name: 'Afghanistan',

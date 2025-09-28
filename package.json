@@ -12,9 +12,10 @@
 	},
 	"type": "module",
 	"devDependencies": {
-		"@types/jsdom": "^21.1.7",
-		"jsdom": "^27.0.0",
-		"tsx": "^4.20.6",
-		"typed-assert": "^1.0.9"
+		"@types/jsdom": "21.1.7",
+		"jsdom": "27.0.0",
+		"prettier": "3.6.2",
+		"tsx": "4.20.6",
+		"typed-assert": "1.0.9"
 	}
 }

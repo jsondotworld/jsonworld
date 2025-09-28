@@ -6,16 +6,22 @@ import { format, resolveConfig } from 'prettier'
 export async function writeData(
 	importUrl: string,
 	basename: string,
-	data: object
+	object: {
+		source: string
+		timestamp: string
+		data: object
+	}
 ) {
 	const dir = dirname(fileURLToPath(importUrl))
 	const options = await resolveConfig(dir)
 
-	const jsonString = JSON.stringify(data)
-	const typescriptCode = `export default ${jsonString} as const`
+	const { data, ...meta } = object
+	const typescriptCode =
+		`export const meta = ${JSON.stringify(meta)} as const\n\n` +
+		`export const data = ${JSON.stringify(data)} as const`
 
 	const [formattedJson, formattedTypescript] = await Promise.all([
-		format(jsonString, { ...options, parser: 'json' }),
+		format(JSON.stringify(object), { ...options, parser: 'json' }),
 		format(typescriptCode, { ...options, parser: 'typescript' }),
 	])
 
